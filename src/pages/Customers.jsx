@@ -117,6 +117,10 @@ const Customers = () => {
     </div>
   );
 
+  const avgOrderValue = customersData.length > 0 && customersData.reduce((sum, c) => sum + c.totalOrders, 0) > 0
+    ? (customersData.reduce((sum, c) => sum + c.totalSpent, 0) / customersData.reduce((sum, c) => sum + c.totalOrders, 0)).toFixed(2)
+    : '0.00';
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -136,43 +140,37 @@ const Customers = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {[
-          { 
-            label: 'Total Customers', 
-            value: customersData.length, 
-            icon: '👥',
-            color: 'bg-blue-500'
-          },
-          { 
-            label: 'VIP Customers', 
-            value: customersData.filter(c => c.status === 'VIP').length, 
-            icon: '⭐',
-            color: 'bg-purple-500'
-          },
-          { 
-            label: 'Avg. Order Value', 
-            value: `$${(customersData.reduce((sum, c) => sum + c.totalSpent, 0) / customersData.reduce((sum, c) => sum + c.totalOrders, 0)).toFixed(2)}`, 
-            icon: '💰',
-            color: 'bg-green-500'
-          },
-          { 
-            label: 'Total Revenue', 
-            value: `$${customersData.reduce((sum, c) => sum + c.totalSpent, 0).toLocaleString()}`, 
-            icon: '📈',
-            color: 'bg-orange-500'
-          },
-        ].map((stat, index) => (
-          <div key={index} className="bg-white dark:bg-dark-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-dark-700">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{stat.label}</p>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
-              </div>
-              <div className="text-3xl">{stat.icon}</div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-4">
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">👥</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Total Customers</div>
+            <div className="text-2xl text-blue-600 dark:text-blue-400">{customersData.length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">⭐</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">VIP Customers</div>
+            <div className="text-2xl text-purple-600 dark:text-purple-400">{customersData.filter(c => c.status === 'VIP').length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">💰</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Avg. Order Value</div>
+            <div className="text-2xl text-green-600 dark:text-green-400">${avgOrderValue}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">📈</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Total Revenue</div>
+            <div className="text-2xl text-orange-600 dark:text-orange-400">
+              ${customersData.reduce((sum, c) => sum + c.totalSpent, 0).toLocaleString()}
             </div>
           </div>
-        ))}
+        </div>
       </div>
 
       {/* Filters */}

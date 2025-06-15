@@ -120,28 +120,35 @@ const Orders = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {[
-          { label: 'Total Orders', value: ordersData.length, icon: Package, color: 'bg-blue-500' },
-          { label: 'Pending', value: ordersData.filter(o => o.status === 'Pending').length, icon: Clock, color: 'bg-yellow-500' },
-          { label: 'Processing', value: ordersData.filter(o => o.status === 'Processing').length, icon: Package, color: 'bg-orange-500' },
-          { label: 'Delivered', value: ordersData.filter(o => o.status === 'Delivered').length, icon: CheckCircle, color: 'bg-green-500' },
-        ].map((stat, index) => {
-          const Icon = stat.icon;
-          return (
-            <div key={index} className="bg-white dark:bg-dark-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-dark-700">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{stat.label}</p>
-                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
-                </div>
-                <div className={`p-3 rounded-full ${stat.color}`}>
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </div>
-          );
-        })}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-4">
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">📦</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Total Orders</div>
+            <div className="text-2xl text-blue-600 dark:text-blue-400">{ordersData.length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">⏳</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Pending</div>
+            <div className="text-2xl text-yellow-600 dark:text-yellow-400">{ordersData.filter(o => o.status === 'Pending').length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">🚚</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Processing</div>
+            <div className="text-2xl text-orange-600 dark:text-orange-400">{ordersData.filter(o => o.status === 'Processing').length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">✅</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Delivered</div>
+            <div className="text-2xl text-green-600 dark:text-green-400">{ordersData.filter(o => o.status === 'Delivered').length}</div>
+          </div>
+        </div>
       </div>
 
       {/* Filters */}

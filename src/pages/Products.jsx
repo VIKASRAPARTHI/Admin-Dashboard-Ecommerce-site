@@ -192,49 +192,42 @@ const Products = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-        {[
-          { 
-            label: 'Total Products', 
-            value: productsData.length, 
-            icon: '📦',
-            color: 'bg-blue-500'
-          },
-          { 
-            label: 'Active', 
-            value: productsData.filter(p => p.status === 'Active').length, 
-            icon: '✅',
-            color: 'bg-green-500'
-          },
-          { 
-            label: 'Low Stock', 
-            value: productsData.filter(p => p.status === 'Low Stock').length, 
-            icon: '⚠️',
-            color: 'bg-yellow-500'
-          },
-          { 
-            label: 'Out of Stock', 
-            value: productsData.filter(p => p.status === 'Out of Stock').length, 
-            icon: '❌',
-            color: 'bg-red-500'
-          },
-          { 
-            label: 'Categories', 
-            value: categories.length, 
-            icon: '🏷️',
-            color: 'bg-purple-500'
-          },
-        ].map((stat, index) => (
-          <div key={index} className="bg-white dark:bg-dark-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-dark-700">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{stat.label}</p>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
-              </div>
-              <div className="text-3xl">{stat.icon}</div>
-            </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 my-4">
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">📦</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Total Products</div>
+            <div className="text-2xl text-blue-600 dark:text-blue-400">{productsData.length}</div>
           </div>
-        ))}
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">✅</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Active</div>
+            <div className="text-2xl text-green-600 dark:text-green-400">{productsData.filter(p => p.status === 'Active').length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">⚠️</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Low Stock</div>
+            <div className="text-2xl text-yellow-600 dark:text-yellow-400">{productsData.filter(p => p.status === 'Low Stock').length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">❌</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Out of Stock</div>
+            <div className="text-2xl text-red-600 dark:text-red-400">{productsData.filter(p => p.status === 'Out of Stock').length}</div>
+          </div>
+        </div>
+        <div className="flex items-center bg-white dark:bg-dark-800 rounded-xl shadow p-4 space-x-3 border border-gray-100 dark:border-dark-700">
+          <span className="text-3xl">🏷️</span>
+          <div>
+            <div className="text-lg font-semibold text-gray-900 dark:text-white">Categories</div>
+            <div className="text-2xl text-purple-600 dark:text-purple-400">{categories.length}</div>
+          </div>
+        </div>
       </div>
 
       {/* Filters */}
