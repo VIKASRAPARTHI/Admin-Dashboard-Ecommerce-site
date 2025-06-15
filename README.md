@@ -357,6 +357,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Built with ❤️ by developers, for developers**
 
-[🐛 Report Bug](https://github.com/yourusername/ecommercehub-admin/issues) • [✨ Request Feature](https://github.com/yourusername/ecommercehub-admin/issues) • [💬 Discussions](https://github.com/yourusername/ecommercehub-admin/discussions)
+[ Report Bug](https://github.com/yourusername/ecommercehub-admin/issues) • [Request Feature](https://github.com/yourusername/ecommercehub-admin/issues) • [ Discussions](https://github.com/yourusername/ecommercehub-admin/discussions)
 
 </div>
