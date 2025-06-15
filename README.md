@@ -321,28 +321,7 @@ const fetchOrders = async () => {
 };
 ```
 
-## 📊 Performance
-
-### **Bundle Analysis**
-- **Total Bundle Size**: 1.12MB
-- **Gzipped Size**: 316KB
-- **CSS Size**: 44KB (8KB gzipped)
-- **Vendor Chunks**: Optimally split for caching
-
-### **Lighthouse Scores**
-- **Performance**: 95/100
-- **Accessibility**: 98/100
-- **Best Practices**: 100/100
-- **SEO**: 92/100
-
-### **Optimization Features**
-- ⚡ **Code Splitting**: Dynamic imports for route-based splitting
-- 🗜️ **Tree Shaking**: Unused code elimination
-- 📦 **Asset Optimization**: Automatic image and font optimization
-- 🔄 **Caching Strategy**: Aggressive caching for static assets
-- 📱 **Mobile Optimization**: Optimized for mobile performance
-
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how to get started:
 
@@ -368,23 +347,13 @@ We welcome contributions! Here's how to get started:
 - Provide steps to reproduce
 - Include screenshots if applicable
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-### **What this means:**
-- ✅ Commercial use allowed
-- ✅ Modification allowed
-- ✅ Distribution allowed
-- ✅ Private use allowed
-- ❌ No warranty provided
-- ❌ No liability accepted
-
----
-
 <div align="center">
 
-### 🌟 **Star this repository if you found it helpful!** 🌟
+### **Star this repository if you found it helpful!** 
 
 **Built with ❤️ by developers, for developers**
 
